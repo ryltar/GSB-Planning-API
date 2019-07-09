@@ -1,0 +1,5 @@
+/venv
+/site-visites-api_uwsgi.conf
+/site-visites-api_uwsgi.ini
+/site-visites-api_uwsgi.sock
+*.pyc

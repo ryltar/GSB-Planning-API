@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Specialty</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;Specialty
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Specialty-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Specialty-module.html">Module Specialty</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt> <tt class="py-keyword">import</tt> <tt class="py-name">jsonify</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt>  </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask_restful</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Resource</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module Authentication=Authentication-module.html"><a title="Authentication" class="py-name" href="#" onclick="return doclink('link-0', 'Authentication', 'link-0');">Authentication</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module Service=Service-module.html,Class Service.Service=Service.Service-class.html"><a title="Service
+Service.Service" class="py-name" href="#" onclick="return doclink('link-1', 'Service', 'link-1');">Service</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="get_service"></a><div id="get_service-def"><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt> <a class="py-toggle" href="#" id="get_service-toggle" onclick="return toggle('get_service');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty-module.html#get_service">get_service</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_service-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_service-expanded"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-docstring">""" Gets an instance of 'Service' from the 'g' environment. """</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-string">'service'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">service</tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="Service
+Service.Service" class="py-name" href="#" onclick="return doclink('link-2', 'Service', 'link-1');">Service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">service</tt> </tt>
+</div><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="specialty_queries"></a><div id="specialty_queries-def"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt> <a class="py-toggle" href="#" id="specialty_queries-toggle" onclick="return toggle('specialty_queries');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty-module.html#specialty_queries">specialty_queries</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="specialty_queries-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="specialty_queries-expanded"><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-docstring">""" Gets an instance of 'SpecialtyQueries' from the 'g' environment. """</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-string">'spec_queries'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">spec_queries</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Class Specialty.SpecialtyQueries=Specialty.SpecialtyQueries-class.html"><a title="Specialty.SpecialtyQueries" class="py-name" href="#" onclick="return doclink('link-3', 'SpecialtyQueries', 'link-3');">SpecialtyQueries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">spec_queries</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyQueries"></a><div id="SpecialtyQueries-def"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="SpecialtyQueries-toggle" onclick="return toggle('SpecialtyQueries');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html">SpecialtyQueries</a><tt class="py-op">:</tt>     </tt>
+</div><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-docstring">""" Manager for Specialty entity related SQL queries. """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">     </tt>
+<a name="SpecialtyQueries.get_spec_by_id"></a><div id="SpecialtyQueries.get_spec_by_id-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="SpecialtyQueries.get_spec_by_id-toggle" onclick="return toggle('SpecialtyQueries.get_spec_by_id');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html#get_spec_by_id">get_spec_by_id</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyQueries.get_spec_by_id-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyQueries.get_spec_by_id-expanded"><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a 'SELECT' query for a single Specialty. """</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"SELECT * FROM specialty WHERE id = %s"</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyQueries.del_spec_by_id"></a><div id="SpecialtyQueries.del_spec_by_id-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="SpecialtyQueries.del_spec_by_id-toggle" onclick="return toggle('SpecialtyQueries.del_spec_by_id');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html#del_spec_by_id">del_spec_by_id</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyQueries.del_spec_by_id-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyQueries.del_spec_by_id-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a 'DELETE' query for a single Specialty. """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"DELETE FROM specialty WHERE id = %s"</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyQueries.get_specs"></a><div id="SpecialtyQueries.get_specs-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="SpecialtyQueries.get_specs-toggle" onclick="return toggle('SpecialtyQueries.get_specs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html#get_specs">get_specs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyQueries.get_specs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyQueries.get_specs-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a 'SELECT' query for a single Specialty. """</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"SELECT * FROM specialty"</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyQueries.post_spec"></a><div id="SpecialtyQueries.post_spec-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="SpecialtyQueries.post_spec-toggle" onclick="return toggle('SpecialtyQueries.post_spec');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html#post_spec">post_spec</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyQueries.post_spec-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyQueries.post_spec-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns an 'INSERT' query for a single Specialty. """</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"INSERT INTO specialty(label) VALUES(%s) RETURNING id"</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyQueries.put_spec"></a><div id="SpecialtyQueries.put_spec-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="SpecialtyQueries.put_spec-toggle" onclick="return toggle('SpecialtyQueries.put_spec');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyQueries-class.html#put_spec">put_spec</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key_list</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyQueries.put_spec-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyQueries.put_spec-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns an 'UPDATE' query for a single Specialty. """</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">tspec</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">key_list</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-name">tspec</tt> <tt class="py-op">+=</tt> <tt class="py-name">key_list</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">" = %s, "</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"UPDATE specialty SET "</tt> <tt class="py-op">+</tt> <tt class="py-name">tspec</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">" WHERE id = %s"</tt> </tt>
+</div></div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="Specialty"></a><div id="Specialty-def"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="Specialty-toggle" onclick="return toggle('Specialty');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Specialty.Specialty-class.html">Specialty</a><tt class="py-op">(</tt><tt class="py-base-class">Resource</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Specialty-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Specialty-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-docstring">""" Flask_restful Resource for Specialty entity, for routes with a parameter. """</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="Specialty.get"></a><div id="Specialty.get-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="Specialty.get-toggle" onclick="return toggle('Specialty.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.Specialty-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">spec_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Specialty.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Specialty.get-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a single Specialty. """</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Function Specialty.specialty_queries()=Specialty-module.html#specialty_queries"><a title="Specialty.specialty_queries" class="py-name" href="#" onclick="return doclink('link-4', 'specialty_queries', 'link-4');">specialty_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method Specialty.SpecialtyQueries.get_spec_by_id()=Specialty.SpecialtyQueries-class.html#get_spec_by_id"><a title="Specialty.SpecialtyQueries.get_spec_by_id" class="py-name" href="#" onclick="return doclink('link-5', 'get_spec_by_id', 'link-5');">get_spec_by_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">specialty</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name" targets="Function Address.get_service()=Address-module.html#get_service,Function Appointment.get_service()=Appointment-module.html#get_service,Function Doctor.get_service()=Doctor-module.html#get_service,Function Employee.get_service()=Employee-module.html#get_service,Function EmployeeAppointment.get_service()=EmployeeAppointment-module.html#get_service,Function IsMentioned.get_service()=IsMentioned-module.html#get_service,Function Medic.get_service()=Medic-module.html#get_service,Function Specialty.get_service()=Specialty-module.html#get_service,Function Token.get_service()=Token-module.html#get_service"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-6', 'get_service', 'link-6');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Service.Service.get_content()=Service.Service-class.html#get_content"><a title="Service.Service.get_content" class="py-name" href="#" onclick="return doclink('link-7', 'get_content', 'link-7');">get_content</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">spec_id</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">specialty</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">,</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt id="link-8" class="py-name" targets="Class Specialty.SpecialtyContainer=Specialty.SpecialtyContainer-class.html"><a title="Specialty.SpecialtyContainer" class="py-name" href="#" onclick="return doclink('link-8', 'SpecialtyContainer', 'link-8');">SpecialtyContainer</a></tt><tt class="py-op">(</tt><tt class="py-name">specialty</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="Specialty.delete"></a><div id="Specialty.delete-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="Specialty.delete-toggle" onclick="return toggle('Specialty.delete');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.Specialty-class.html#delete">delete</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">spec_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Specialty.delete-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Specialty.delete-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-docstring">""" Deletes a single Specialty. """</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="Specialty.specialty_queries" class="py-name" href="#" onclick="return doclink('link-9', 'specialty_queries', 'link-4');">specialty_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Specialty.SpecialtyQueries.del_spec_by_id()=Specialty.SpecialtyQueries-class.html#del_spec_by_id"><a title="Specialty.SpecialtyQueries.del_spec_by_id" class="py-name" href="#" onclick="return doclink('link-10', 'del_spec_by_id', 'link-10');">del_spec_by_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-11', 'get_service', 'link-6');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Service.Service.del_content()=Service.Service-class.html#del_content"><a title="Service.Service.del_content" class="py-name" href="#" onclick="return doclink('link-12', 'del_content', 'link-12');">del_content</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">,</tt><tt class="py-op">[</tt><tt class="py-name">spec_id</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">value</tt> <tt class="py-op">!=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="Specialty.put"></a><div id="Specialty.put-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="Specialty.put-toggle" onclick="return toggle('Specialty.put');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.Specialty-class.html#put">put</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">spec_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Specialty.put-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Specialty.put-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-docstring">""" Edits a single Specialty. """</tt>         </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">key_list</tt><tt class="py-op">,</tt> <tt class="py-name">value_list</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">key</tt><tt class="py-op">,</tt> <tt class="py-name">value</tt> <tt class="py-keyword">in</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-name">key_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">value_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">value</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">value_list</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">spec_id</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Specialty.specialty_queries" class="py-name" href="#" onclick="return doclink('link-13', 'specialty_queries', 'link-4');">specialty_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Specialty.SpecialtyQueries.put_spec()=Specialty.SpecialtyQueries-class.html#put_spec"><a title="Specialty.SpecialtyQueries.put_spec" class="py-name" href="#" onclick="return doclink('link-14', 'put_spec', 'link-14');">put_spec</a></tt><tt class="py-op">(</tt><tt class="py-name">key_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">value</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-15', 'get_service', 'link-6');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Service.Service.put_content()=Service.Service-class.html#put_content"><a title="Service.Service.put_content" class="py-name" href="#" onclick="return doclink('link-16', 'put_content', 'link-16');">put_content</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">,</tt> <tt class="py-name">value_list</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">value</tt> <tt class="py-op">!=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyContainer"></a><div id="SpecialtyContainer-def"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="SpecialtyContainer-toggle" onclick="return toggle('SpecialtyContainer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Specialty.SpecialtyContainer-class.html">SpecialtyContainer</a><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyContainer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SpecialtyContainer-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-docstring">""" The Specialty entity itself. """</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">         </tt>
+<a name="SpecialtyContainer.__init__"></a><div id="SpecialtyContainer.__init__-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="SpecialtyContainer.__init__-toggle" onclick="return toggle('SpecialtyContainer.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyContainer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">array</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyContainer.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyContainer.__init__-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-docstring">""" Builds the entity from a list. """</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">label</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="SpecialtyList"></a><div id="SpecialtyList-def"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="SpecialtyList-toggle" onclick="return toggle('SpecialtyList');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Specialty.SpecialtyList-class.html">SpecialtyList</a><tt class="py-op">(</tt><tt class="py-base-class">Resource</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyList-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SpecialtyList-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="SpecialtyList.get"></a><div id="SpecialtyList.get-def"><a name="L97"></a><tt class="py-lineno"> 97</tt> <a class="py-toggle" href="#" id="SpecialtyList.get-toggle" onclick="return toggle('SpecialtyList.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyList-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyList.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyList.get-expanded"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-docstring">""" Flask_restful Resource for Specialty entity, for routes with no parameter."""</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="Specialty.specialty_queries" class="py-name" href="#" onclick="return doclink('link-17', 'specialty_queries', 'link-4');">specialty_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Specialty.SpecialtyQueries.get_specs()=Specialty.SpecialtyQueries-class.html#get_specs"><a title="Specialty.SpecialtyQueries.get_specs" class="py-name" href="#" onclick="return doclink('link-18', 'get_specs', 'link-18');">get_specs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">specialties</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-19', 'get_service', 'link-6');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Service.Service.get_contents()=Service.Service-class.html#get_contents"><a title="Service.Service.get_contents" class="py-name" href="#" onclick="return doclink('link-20', 'get_contents', 'link-20');">get_contents</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">specialties</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">json_to_return</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">specialties</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-name">spec</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="Specialty.SpecialtyContainer" class="py-name" href="#" onclick="return doclink('link-21', 'SpecialtyContainer', 'link-8');">SpecialtyContainer</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">json_to_return</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">spec</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">json_to_return</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="SpecialtyList.post"></a><div id="SpecialtyList.post-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="SpecialtyList.post-toggle" onclick="return toggle('SpecialtyList.post');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Specialty.SpecialtyList-class.html#post">post</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SpecialtyList.post-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SpecialtyList.post-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns every single Specialty. """</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="Specialty.specialty_queries" class="py-name" href="#" onclick="return doclink('link-22', 'specialty_queries', 'link-4');">specialty_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method Specialty.SpecialtyQueries.post_spec()=Specialty.SpecialtyQueries-class.html#post_spec"><a title="Specialty.SpecialtyQueries.post_spec" class="py-name" href="#" onclick="return doclink('link-23', 'post_spec', 'link-23');">post_spec</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">label</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">[</tt><tt class="py-string">'label'</tt><tt class="py-op">]</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">spec_id</tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-24', 'get_service', 'link-6');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method Service.Service.post_content()=Service.Service-class.html#post_content"><a title="Service.Service.post_content" class="py-name" href="#" onclick="return doclink('link-25', 'post_content', 'link-25');">post_content</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">label</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">spec_id</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">,</tt><tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">spec_id</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 20 19:04:41 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

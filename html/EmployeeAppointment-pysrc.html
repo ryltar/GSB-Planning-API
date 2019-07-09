@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>EmployeeAppointment</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;EmployeeAppointment
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="EmployeeAppointment-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="EmployeeAppointment-module.html">Module EmployeeAppointment</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt> <tt class="py-keyword">import</tt> <tt class="py-name">jsonify</tt><tt class="py-op">,</tt> <tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt>  </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask_restful</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Resource</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module Authentication=Authentication-module.html"><a title="Authentication" class="py-name" href="#" onclick="return doclink('link-0', 'Authentication', 'link-0');">Authentication</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module Service=Service-module.html,Class Service.Service=Service.Service-class.html"><a title="Service
+Service.Service" class="py-name" href="#" onclick="return doclink('link-1', 'Service', 'link-1');">Service</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="get_service"></a><div id="get_service-def"><a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt> <a class="py-toggle" href="#" id="get_service-toggle" onclick="return toggle('get_service');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment-module.html#get_service">get_service</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="get_service-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="get_service-expanded"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-docstring">""" Gets an instance of 'Service' from the 'g' environment. """</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-string">'service'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">service</tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="Service
+Service.Service" class="py-name" href="#" onclick="return doclink('link-2', 'Service', 'link-1');">Service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">service</tt> </tt>
+</div><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="emp_appointment_queries"></a><div id="emp_appointment_queries-def"><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt> <a class="py-toggle" href="#" id="emp_appointment_queries-toggle" onclick="return toggle('emp_appointment_queries');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment-module.html#emp_appointment_queries">emp_appointment_queries</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="emp_appointment_queries-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="emp_appointment_queries-expanded"><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-docstring">""" Gets an instance of 'EmployeeAppointmentQueries' from the 'g' environment. """</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-string">'emp_appoint_queries'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">emp_appoint_queries</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Class EmployeeAppointment.EmployeeAppointmentQueries=EmployeeAppointment.EmployeeAppointmentQueries-class.html"><a title="EmployeeAppointment.EmployeeAppointmentQueries" class="py-name" href="#" onclick="return doclink('link-3', 'EmployeeAppointmentQueries', 'link-3');">EmployeeAppointmentQueries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">g</tt><tt class="py-op">.</tt><tt class="py-name">emp_appoint_queries</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="parse_state_args"></a><div id="parse_state_args-def"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="parse_state_args-toggle" onclick="return toggle('parse_state_args');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment-module.html#parse_state_args">parse_state_args</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_state_args-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_state_args-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-docstring">""" Returns the state of the searched appointments, -1 if all are searched. """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">'state'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-string">'state'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'future'</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">0</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-string">'state'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'unvalidated'</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">[</tt><tt class="py-string">'state'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'archived'</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-number">2</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="EmployeeAppointmentQueries"></a><div id="EmployeeAppointmentQueries-def"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentQueries-toggle" onclick="return toggle('EmployeeAppointmentQueries');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentQueries-class.html">EmployeeAppointmentQueries</a><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentQueries-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="EmployeeAppointmentQueries-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-docstring">""" Manager for EmployeeAppointment entity related SQL queries. """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">     </tt>
+<a name="EmployeeAppointmentQueries.get_all_appoints"></a><div id="EmployeeAppointmentQueries.get_all_appoints-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentQueries.get_all_appoints-toggle" onclick="return toggle('EmployeeAppointmentQueries.get_all_appoints');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentQueries-class.html#get_all_appoints">get_all_appoints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentQueries.get_all_appoints-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="EmployeeAppointmentQueries.get_all_appoints-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a 'SELECT' query for EmployeeAppointment. """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt class="py-string">"SELECT * FROM appointment ap"</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-string">" INNER JOIN doctor d ON ap.id_doctor = d.id"</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-string">" INNER JOIN address ad ON d.id_address = ad.id"</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-string">" LEFT OUTER JOIN specialty s ON d.id_specialty = s.id"</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">query</tt> <tt class="py-op">+=</tt> <tt class="py-string">" WHERE d.id_employee = %s"</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">query</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">  </tt>
+<a name="EmployeeAppointmentQueries.get_cust_appoints"></a><div id="EmployeeAppointmentQueries.get_cust_appoints-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentQueries.get_cust_appoints-toggle" onclick="return toggle('EmployeeAppointmentQueries.get_cust_appoints');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentQueries-class.html#get_cust_appoints">get_cust_appoints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentQueries.get_cust_appoints-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="EmployeeAppointmentQueries.get_cust_appoints-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns a 'SELECT' query for EmployeeAppointment. """</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method EmployeeAppointment.EmployeeAppointmentQueries.get_all_appoints()=EmployeeAppointment.EmployeeAppointmentQueries-class.html#get_all_appoints"><a title="EmployeeAppointment.EmployeeAppointmentQueries.get_all_appoints" class="py-name" href="#" onclick="return doclink('link-4', 'get_all_appoints', 'link-4');">get_all_appoints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">" AND ap.state = %s"</tt> </tt>
+</div></div><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="EmployeeAppointmentContainer"></a><div id="EmployeeAppointmentContainer-def"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentContainer-toggle" onclick="return toggle('EmployeeAppointmentContainer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentContainer-class.html">EmployeeAppointmentContainer</a><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentContainer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="EmployeeAppointmentContainer-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt class="py-docstring">""" The EmployeeAppointment entity itself. """</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">         </tt>
+<a name="EmployeeAppointmentContainer.__init__"></a><div id="EmployeeAppointmentContainer.__init__-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentContainer.__init__-toggle" onclick="return toggle('EmployeeAppointmentContainer.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentContainer-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">array</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentContainer.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="EmployeeAppointmentContainer.__init__-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-docstring">""" Builds the entity from a list. """</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">end_date</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">state</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">feedback</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_doctor</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">5</tt><tt class="py-op">]</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lastname_doctor</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">7</tt><tt class="py-op">]</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">firstname_doctor</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">8</tt><tt class="py-op">]</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">num_tel_doctor</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">9</tt><tt class="py-op">]</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">email_doctor</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">10</tt><tt class="py-op">]</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">11</tt><tt class="py-op">]</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">num_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">15</tt><tt class="py-op">]</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">street_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">16</tt><tt class="py-op">]</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">codepost_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">17</tt><tt class="py-op">]</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">city_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">18</tt><tt class="py-op">]</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">country_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">19</tt><tt class="py-op">]</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">indication_address</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">20</tt><tt class="py-op">]</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">id_specialty</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">21</tt><tt class="py-op">]</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">label_specialty</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">[</tt><tt class="py-number">22</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="EmployeeAppointmentList"></a><div id="EmployeeAppointmentList-def"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentList-toggle" onclick="return toggle('EmployeeAppointmentList');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentList-class.html">EmployeeAppointmentList</a><tt class="py-op">(</tt><tt class="py-base-class">Resource</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentList-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="EmployeeAppointmentList-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">    <tt class="py-docstring">""" Flask_restful Resource for EmployeeAppointment entity, for routes with no parameter."""</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">requires_admin_auth</tt> </tt>
+<a name="EmployeeAppointmentList.post"></a><div id="EmployeeAppointmentList.post-def"><a name="L82"></a><tt class="py-lineno"> 82</tt> <a class="py-toggle" href="#" id="EmployeeAppointmentList.post-toggle" onclick="return toggle('EmployeeAppointmentList.post');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="EmployeeAppointment.EmployeeAppointmentList-class.html#post">post</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="EmployeeAppointmentList.post-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="EmployeeAppointmentList.post-expanded"><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-docstring">""" Returns every single EmployeeAppointment of the requested user. """</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">query_params</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">[</tt><tt class="py-string">'id_employee'</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">appointment_state</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name" targets="Function EmployeeAppointment.parse_state_args()=EmployeeAppointment-module.html#parse_state_args"><a title="EmployeeAppointment.parse_state_args" class="py-name" href="#" onclick="return doclink('link-5', 'parse_state_args', 'link-5');">parse_state_args</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">appointment_state</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name" targets="Function EmployeeAppointment.emp_appointment_queries()=EmployeeAppointment-module.html#emp_appointment_queries"><a title="EmployeeAppointment.emp_appointment_queries" class="py-name" href="#" onclick="return doclink('link-6', 'emp_appointment_queries', 'link-6');">emp_appointment_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="EmployeeAppointment.EmployeeAppointmentQueries.get_all_appoints" class="py-name" href="#" onclick="return doclink('link-7', 'get_all_appoints', 'link-4');">get_all_appoints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-name">query</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="EmployeeAppointment.emp_appointment_queries" class="py-name" href="#" onclick="return doclink('link-8', 'emp_appointment_queries', 'link-6');">emp_appointment_queries</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method EmployeeAppointment.EmployeeAppointmentQueries.get_cust_appoints()=EmployeeAppointment.EmployeeAppointmentQueries-class.html#get_cust_appoints"><a title="EmployeeAppointment.EmployeeAppointmentQueries.get_cust_appoints" class="py-name" href="#" onclick="return doclink('link-9', 'get_cust_appoints', 'link-9');">get_cust_appoints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">query_params</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">appointment_state</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">appointments</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Function Address.get_service()=Address-module.html#get_service,Function Appointment.get_service()=Appointment-module.html#get_service,Function Doctor.get_service()=Doctor-module.html#get_service,Function Employee.get_service()=Employee-module.html#get_service,Function EmployeeAppointment.get_service()=EmployeeAppointment-module.html#get_service,Function IsMentioned.get_service()=IsMentioned-module.html#get_service,Function Medic.get_service()=Medic-module.html#get_service,Function Specialty.get_service()=Specialty-module.html#get_service,Function Token.get_service()=Token-module.html#get_service"><a title="Address.get_service
+Appointment.get_service
+Doctor.get_service
+Employee.get_service
+EmployeeAppointment.get_service
+IsMentioned.get_service
+Medic.get_service
+Specialty.get_service
+Token.get_service" class="py-name" href="#" onclick="return doclink('link-10', 'get_service', 'link-10');">get_service</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Service.Service.get_custom_contents()=Service.Service-class.html#get_custom_contents"><a title="Service.Service.get_custom_contents" class="py-name" href="#" onclick="return doclink('link-11', 'get_custom_contents', 'link-11');">get_custom_contents</a></tt><tt class="py-op">(</tt><tt class="py-name">query</tt><tt class="py-op">,</tt> <tt class="py-name">query_params</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">appointments</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">404</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">json_to_return</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">appointments</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">appoint</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Class EmployeeAppointment.EmployeeAppointmentContainer=EmployeeAppointment.EmployeeAppointmentContainer-class.html"><a title="EmployeeAppointment.EmployeeAppointmentContainer" class="py-name" href="#" onclick="return doclink('link-12', 'EmployeeAppointmentContainer', 'link-12');">EmployeeAppointmentContainer</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-name">json_to_return</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">appoint</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">jsonify</tt><tt class="py-op">(</tt><tt class="py-name">status</tt><tt class="py-op">=</tt><tt class="py-number">200</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">json_to_return</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 20 19:04:41 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

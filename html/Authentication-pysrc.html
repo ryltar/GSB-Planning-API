@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Authentication</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;Authentication
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Authentication-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Authentication-module.html">Module Authentication</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">flask</tt> <tt class="py-keyword">import</tt> <tt class="py-name">g</tt><tt class="py-op">,</tt> <tt class="py-name">request</tt><tt class="py-op">,</tt> <tt class="py-name">Response</tt><tt class="py-op">,</tt> <tt id="link-0" class="py-name" targets="Variable Address.session=Address-module.html#session,Variable Appointment.session=Appointment-module.html#session,Variable Doctor.session=Doctor-module.html#session,Variable Employee.session=Employee-module.html#session,Variable EmployeeAppointment.session=EmployeeAppointment-module.html#session,Variable IsMentioned.session=IsMentioned-module.html#session,Variable Medic.session=Medic-module.html#session,Variable Specialty.session=Specialty-module.html#session"><a title="Address.session
+Appointment.session
+Doctor.session
+Employee.session
+EmployeeAppointment.session
+IsMentioned.session
+Medic.session
+Specialty.session" class="py-name" href="#" onclick="return doclink('link-0', 'session', 'link-0');">session</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">functools</tt> <tt class="py-keyword">import</tt> <tt class="py-name">wraps</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">jwt</tt> </tt>
+<a name="no_token"></a><div id="no_token-def"><a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="no_token-toggle" onclick="return toggle('no_token');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#no_token">no_token</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="no_token-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="no_token-expanded"><a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line">    <tt class="py-docstring">""" Sends a 401 response when no token is found. """</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">Response</tt><tt class="py-op">(</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt class="py-string">'No token found.\n'</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-string">'You have to join a valid token to access this url.'</tt><tt class="py-op">,</tt> <tt class="py-number">401</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="bad_token"></a><div id="bad_token-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="bad_token-toggle" onclick="return toggle('bad_token');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#bad_token">bad_token</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="bad_token-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="bad_token-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-docstring">""" Sends a 401 response that signals invalid token. """</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">Response</tt><tt class="py-op">(</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-string">'Road unavailable.\n'</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-string">'You have to login with proper credentials'</tt><tt class="py-op">,</tt> <tt class="py-number">401</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="requires_basic_auth"></a><div id="requires_basic_auth-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="requires_basic_auth-toggle" onclick="return toggle('requires_basic_auth');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#requires_basic_auth">requires_basic_auth</a><tt class="py-op">(</tt><tt class="py-param">f</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="requires_basic_auth-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="requires_basic_auth-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-docstring">""" Authorizes navigation in basic access pages. """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">wraps</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">decorated</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">token</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method Address.Address.get()=Address.Address-class.html#get,Method Address.AddressList.get()=Address.AddressList-class.html#get,Method Appointment.Appointment.get()=Appointment.Appointment-class.html#get,Method Appointment.AppointmentList.get()=Appointment.AppointmentList-class.html#get,Method Doctor.Doctor.get()=Doctor.Doctor-class.html#get,Method Doctor.DoctorList.get()=Doctor.DoctorList-class.html#get,Method Employee.Employee.get()=Employee.Employee-class.html#get,Method Employee.EmployeeList.get()=Employee.EmployeeList-class.html#get,Method IsMentioned.IsMentioned.get()=IsMentioned.IsMentioned-class.html#get,Method IsMentioned.IsMentionedList.get()=IsMentioned.IsMentionedList-class.html#get,Method Medic.Medic.get()=Medic.Medic-class.html#get,Method Medic.MedicList.get()=Medic.MedicList-class.html#get,Method Specialty.Specialty.get()=Specialty.Specialty-class.html#get,Method Specialty.SpecialtyList.get()=Specialty.SpecialtyList-class.html#get"><a title="Address.Address.get
+Address.AddressList.get
+Appointment.Appointment.get
+Appointment.AppointmentList.get
+Doctor.Doctor.get
+Doctor.DoctorList.get
+Employee.Employee.get
+Employee.EmployeeList.get
+IsMentioned.IsMentioned.get
+IsMentioned.IsMentionedList.get
+Medic.Medic.get
+Medic.MedicList.get
+Specialty.Specialty.get
+Specialty.SpecialtyList.get" class="py-name" href="#" onclick="return doclink('link-1', 'get', 'link-1');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'authorization'</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-2" class="py-name" targets="Function Authentication.token_is_valid()=Authentication-module.html#token_is_valid"><a title="Authentication.token_is_valid" class="py-name" href="#" onclick="return doclink('link-2', 'token_is_valid', 'link-2');">token_is_valid</a></tt><tt class="py-op">(</tt><tt class="py-name">token</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">f</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-3" class="py-name" targets="Function Authentication.no_token()=Authentication-module.html#no_token"><a title="Authentication.no_token" class="py-name" href="#" onclick="return doclink('link-3', 'no_token', 'link-3');">no_token</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">decorated</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="account_is_admin"></a><div id="account_is_admin-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="account_is_admin-toggle" onclick="return toggle('account_is_admin');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#account_is_admin">account_is_admin</a><tt class="py-op">(</tt><tt class="py-param">token</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="account_is_admin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="account_is_admin-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-docstring">""" Verifies if the account is of admin type. """</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-name">secret</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="Address.session
+Appointment.session
+Doctor.session
+Employee.session
+EmployeeAppointment.session
+IsMentioned.session
+Medic.session
+Specialty.session" class="py-name" href="#" onclick="return doclink('link-4', 'session', 'link-0');">session</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="Address.Address.get
+Address.AddressList.get
+Appointment.Appointment.get
+Appointment.AppointmentList.get
+Doctor.Doctor.get
+Doctor.DoctorList.get
+Employee.Employee.get
+Employee.EmployeeList.get
+IsMentioned.IsMentioned.get
+IsMentioned.IsMentionedList.get
+Medic.Medic.get
+Medic.MedicList.get
+Specialty.Specialty.get
+Specialty.SpecialtyList.get" class="py-name" href="#" onclick="return doclink('link-5', 'get', 'link-1');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'secret'</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">secret</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">decoded</tt> <tt class="py-op">=</tt> <tt class="py-name">jwt</tt><tt class="py-op">.</tt><tt class="py-name">decode</tt><tt class="py-op">(</tt><tt class="py-name">token</tt><tt class="py-op">,</tt> <tt class="py-name">secret</tt><tt class="py-op">,</tt> <tt class="py-name">algorithm</tt><tt class="py-op">=</tt><tt class="py-string">'HS256'</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">decoded</tt><tt class="py-op">[</tt><tt class="py-string">'admin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt id="link-6" class="py-name" targets="Class Authentication.SecretSessionError=Authentication.SecretSessionError-class.html"><a title="Authentication.SecretSessionError" class="py-name" href="#" onclick="return doclink('link-6', 'SecretSessionError', 'link-6');">SecretSessionError</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt>
+<a name="token_is_valid"></a><div id="token_is_valid-def"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt> <a class="py-toggle" href="#" id="token_is_valid-toggle" onclick="return toggle('token_is_valid');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#token_is_valid">token_is_valid</a><tt class="py-op">(</tt><tt class="py-param">token</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="token_is_valid-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="token_is_valid-expanded"><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-docstring">""" Checks existence and validity of a token. """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-name">stoken</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="Address.session
+Appointment.session
+Doctor.session
+Employee.session
+EmployeeAppointment.session
+IsMentioned.session
+Medic.session
+Specialty.session" class="py-name" href="#" onclick="return doclink('link-7', 'session', 'link-0');">session</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="Address.Address.get
+Address.AddressList.get
+Appointment.Appointment.get
+Appointment.AppointmentList.get
+Doctor.Doctor.get
+Doctor.DoctorList.get
+Employee.Employee.get
+Employee.EmployeeList.get
+IsMentioned.IsMentioned.get
+IsMentioned.IsMentionedList.get
+Medic.Medic.get
+Medic.MedicList.get
+Specialty.Specialty.get
+Specialty.SpecialtyList.get" class="py-name" href="#" onclick="return doclink('link-8', 'get', 'link-1');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'token'</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">stoken</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">stoken</tt> <tt class="py-op">==</tt> <tt class="py-name">token</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt id="link-9" class="py-name" targets="Class Authentication.TokenSessionError=Authentication.TokenSessionError-class.html"><a title="Authentication.TokenSessionError" class="py-name" href="#" onclick="return doclink('link-9', 'TokenSessionError', 'link-9');">TokenSessionError</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="requires_admin_auth"></a><div id="requires_admin_auth-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="requires_admin_auth-toggle" onclick="return toggle('requires_admin_auth');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication-module.html#requires_admin_auth">requires_admin_auth</a><tt class="py-op">(</tt><tt class="py-param">f</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="requires_admin_auth-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="requires_admin_auth-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-docstring">""" Authorizes navigation in admin access pages. """</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">wraps</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">decorated</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-name">token</tt> <tt class="py-op">=</tt> <tt class="py-name">request</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Address.Address.get
+Address.AddressList.get
+Appointment.Appointment.get
+Appointment.AppointmentList.get
+Doctor.Doctor.get
+Doctor.DoctorList.get
+Employee.Employee.get
+Employee.EmployeeList.get
+IsMentioned.IsMentioned.get
+IsMentioned.IsMentionedList.get
+Medic.Medic.get
+Medic.MedicList.get
+Specialty.Specialty.get
+Specialty.SpecialtyList.get" class="py-name" href="#" onclick="return doclink('link-10', 'get', 'link-1');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'authorization'</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-comment">#if token and token_is_valid(token) and account_is_admin(token):</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">token</tt> <tt class="py-op">==</tt> <tt class="py-string">'123azerty456'</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">f</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-11" class="py-name"><a title="Authentication.no_token" class="py-name" href="#" onclick="return doclink('link-11', 'no_token', 'link-3');">no_token</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-12" class="py-name"><a title="Authentication.TokenSessionError" class="py-name" href="#" onclick="return doclink('link-12', 'TokenSessionError', 'link-9');">TokenSessionError</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">Response</tt><tt class="py-op">(</tt><tt class="py-string">'Exception : '</tt> <tt class="py-op">+</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt id="link-13" class="py-name"><a title="Authentication.SecretSessionError" class="py-name" href="#" onclick="return doclink('link-13', 'SecretSessionError', 'link-6');">SecretSessionError</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">Response</tt><tt class="py-op">(</tt><tt class="py-string">'Exception : '</tt> <tt class="py-op">+</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">decorated</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="TokenSessionError"></a><div id="TokenSessionError-def"><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt> <a class="py-toggle" href="#" id="TokenSessionError-toggle" onclick="return toggle('TokenSessionError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Authentication.TokenSessionError-class.html">TokenSessionError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TokenSessionError-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TokenSessionError-expanded"><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-docstring">""" Exception for no token. """</tt> </tt>
+<a name="TokenSessionError.__init__"></a><div id="TokenSessionError.__init__-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="TokenSessionError.__init__-toggle" onclick="return toggle('TokenSessionError.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication.TokenSessionError-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TokenSessionError.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TokenSessionError.__init__-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-string">'No token in session.'</tt> </tt>
+</div></div><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="SecretSessionError"></a><div id="SecretSessionError-def"><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt> <a class="py-toggle" href="#" id="SecretSessionError-toggle" onclick="return toggle('SecretSessionError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Authentication.SecretSessionError-class.html">SecretSessionError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SecretSessionError-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SecretSessionError-expanded"><a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-docstring">""" Exception for no secret. """</tt> </tt>
+<a name="SecretSessionError.__init__"></a><div id="SecretSessionError.__init__-def"><a name="L70"></a><tt class="py-lineno">70</tt> <a class="py-toggle" href="#" id="SecretSessionError.__init__-toggle" onclick="return toggle('SecretSessionError.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Authentication.SecretSessionError-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SecretSessionError.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SecretSessionError.__init__-expanded"><a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-string">'No secret in session.'</tt> </tt>
+</div></div><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 20 19:04:41 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
